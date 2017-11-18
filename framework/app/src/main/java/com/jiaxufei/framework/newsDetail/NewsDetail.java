@@ -1,4 +1,4 @@
-package com.jiaxufei.framework.service.bean;
+package com.jiaxufei.framework.newsDetail;
 
 /**
  * author: 贾旭飞(<a href="mailto:jiaxufei@danlu.com">jiaxufei@danlu.com</a>)<br/>

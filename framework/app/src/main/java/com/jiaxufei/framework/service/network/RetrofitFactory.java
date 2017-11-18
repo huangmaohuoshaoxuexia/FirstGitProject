@@ -1,6 +1,6 @@
 package com.jiaxufei.framework.service.network;
 
-import com.jiaxufei.framework.AppService;
+import com.jiaxufei.framework.api.OrderApi;
 import com.jiaxufei.framework.service.config.HttpConfig;
 import com.jiaxufei.framework.service.utils.InterceptorUtil;
 
@@ -24,7 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitFactory {
     private static final int DEFAULT_TIMEOUT=10;
     private static RetrofitFactory retrofitFactory;
-    private static AppService apiFunction;
+    private static OrderApi apiFunction;
     private HashMap<String,HttpClient> httpClientRepository;
 
     private RetrofitFactory() {
@@ -42,7 +42,7 @@ public class RetrofitFactory {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//添加rxjava转换器
                 .client(okHttpClient)
                 .build();
-        apiFunction = retrofit.create(AppService.class);
+        apiFunction = retrofit.create(OrderApi.class);
 
     }
     public static RetrofitFactory getInstance() {
@@ -68,7 +68,7 @@ public class RetrofitFactory {
         return client;
     }
 
-    public AppService API() {
+    public OrderApi API() {
         return apiFunction;
     }
 

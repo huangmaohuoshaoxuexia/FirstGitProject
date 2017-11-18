@@ -1,7 +1,7 @@
-package com.jiaxufei.framework;
+package com.jiaxufei.framework.api;
 
 import com.jiaxufei.framework.service.bean.BaseResponseEntity;
-import com.jiaxufei.framework.service.bean.NewsDetail;
+import com.jiaxufei.framework.newsDetail.NewsDetail;
 import com.jiaxufei.framework.service.config.URLConfig;
 
 
@@ -17,10 +17,10 @@ import retrofit2.http.Query;
  * since: 2017-11-13 下午8:53<br/>
  * <p>
  * <p>
- * API接口
+ * 订单相关API接口
  * </p>
  */
-public interface AppService {
+public interface OrderApi {
     @GET(URLConfig.news_detail_url)
     Observable<BaseResponseEntity<NewsDetail>> getNewsDetail(@Query("id") String title);
     @GET("basil2style")
