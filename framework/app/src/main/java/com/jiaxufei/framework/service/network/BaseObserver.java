@@ -4,17 +4,14 @@ package com.jiaxufei.framework.service.network;
 import android.content.Context;
 import android.util.Log;
 
-import com.jiaxufei.framework.R;
-import com.jiaxufei.framework.service.Exception.ResponseErrorCodeException;
+import com.jiaxufei.framework.service.Exception.ApiException;
+import com.jiaxufei.framework.service.Exception.ExceptionEngine;
+import com.jiaxufei.framework.service.Exception.ServerException;
 import com.jiaxufei.framework.service.bean.BaseResponseEntity;
 import com.jiaxufei.framework.service.config.HttpCode;
 
-
-import java.io.IOException;
-
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-import retrofit2.HttpException;
 
 /**
  * author: 贾旭飞(<a href="mailto:jiaxufei@danlu.com">jiaxufei@danlu.com</a>)<br/>
@@ -48,9 +45,9 @@ public abstract class BaseObserver<T> implements Observer<BaseResponseEntity<T>>
         //发射数据
         if (baseResponseEntity != null) {
             int code = baseResponseEntity.getCode();
-            Log.e("11111",code+"");
             if (code != HttpCode.SUCCESS) {
-                throw new ResponseErrorCodeException(code, baseResponseEntity.getMsg());
+                onError(new ServerException(code, baseResponseEntity.getMsg()));
+                return;
             }
             try {
                 onSuccess(baseResponseEntity);
@@ -66,25 +63,8 @@ public abstract class BaseObserver<T> implements Observer<BaseResponseEntity<T>>
     @Override
     public void onError(Throwable throwable) {
         //通知
-        String errorMsgLog = "";
-        String errorMsg = "";
-        if (throwable instanceof IOException) {
-            errorMsg = context.getString(R.string.check_net_status);
-            errorMsgLog = throwable.getMessage();
-
-        } else if (throwable instanceof HttpException) {
-            HttpException httpException = (HttpException) throwable;
-            errorMsg = context.getString(R.string.check_server_status);
-            errorMsgLog = throwable.getMessage();
-        } else if (throwable instanceof ResponseErrorCodeException) {
-            ResponseErrorCodeException codeErrorException = (ResponseErrorCodeException) throwable;
-            int errorCode = codeErrorException.getCode();
-            switch (errorCode) {
-
-            }
-        } else {
-            errorMsg = context.getString(R.string.check_unknown_error);
-        }
+        ApiException exception= ExceptionEngine.handleException(throwable);
+        Log.e("JXF",exception.getMsg());
     }
 
     @Override

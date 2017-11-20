@@ -5,15 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.jiaxufei.framework.R;
-import com.jiaxufei.framework.AppService;
-import com.jiaxufei.framework.service.bean.NewsDetail;
-import com.jiaxufei.framework.service.network.BaseObserver;
-import com.jiaxufei.framework.service.network.RetrofitFactory;
+import com.jiaxufei.framework.api.NewsApi;
 
-import com.jiaxufei.framework.service.bean.BaseResponseEntity;
-import com.jiaxufei.framework.service.config.HttpConfig;
 import com.jiaxufei.framework.service.config.URLConfig;
-import com.jiaxufei.framework.service.utils.RetrofitUtil;
 import com.trello.rxlifecycle2.components.RxActivity;
 
 import java.io.IOException;
@@ -36,7 +30,7 @@ public class DemoActivity extends RxActivity {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URLConfig.URL_BASE)
                 .build();
-        AppService apiFunction = retrofit.create(AppService.class);
+        NewsApi apiFunction = retrofit.create(NewsApi.class);
         Call<ResponseBody> call = apiFunction.getString();
         call.enqueue(new Callback<ResponseBody>() {
             @Override
