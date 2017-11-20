@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.jiaxufei.framework.R;
-import com.jiaxufei.framework.api.OrderApi;
+import com.jiaxufei.framework.api.NewsApi;
 
 import com.jiaxufei.framework.service.config.URLConfig;
 import com.trello.rxlifecycle2.components.RxActivity;
@@ -30,7 +30,7 @@ public class DemoActivity extends RxActivity {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URLConfig.URL_BASE)
                 .build();
-        OrderApi apiFunction = retrofit.create(OrderApi.class);
+        NewsApi apiFunction = retrofit.create(NewsApi.class);
         Call<ResponseBody> call = apiFunction.getString();
         call.enqueue(new Callback<ResponseBody>() {
             @Override

@@ -2,8 +2,7 @@ package com.jiaxufei.framework.newsDetail;
 
 import android.util.Log;
 
-import com.jiaxufei.framework.MainActivity;
-import com.jiaxufei.framework.api.OrderApi;
+import com.jiaxufei.framework.api.NewsApi;
 import com.jiaxufei.framework.service.bean.BaseResponseEntity;
 import com.jiaxufei.framework.service.config.HttpConfig;
 import com.jiaxufei.framework.service.network.BaseObserver;
@@ -23,26 +22,26 @@ public class NewsDetailPresenter implements NewsDetailContract.Presenter {
     public NewsDetailContract.View newsDetailView;
     public NewsDetailActivity newsDetailActivity;
 
-    public NewsDetailPresenter(NewsDetailContract.View view) {
+    public NewsDetailPresenter(NewsDetailContract.View view, NewsDetailActivity activity) {
         this.newsDetailView = view;
-
+        this.newsDetailActivity = activity;
     }
 
     @Override
     public void getNewsDetail() {
         RetrofitFactory.getInstance()
                 .getNetworkClient(HttpConfig.BASE_URL)
-                .createApi(OrderApi.class)
+                .createApi(NewsApi.class)
                 .getNewsDetail("111")
-                .compose(RetrofitUtil.<BaseResponseEntity<NewsDetail>>setThread())
-                .subscribe(new BaseObserver<NewsDetail>() {
+                .compose(RetrofitUtil.<BaseResponseEntity<NewsDetail>>setThread(newsDetailActivity))
+                .subscribe(new BaseObserver<NewsDetail>(newsDetailActivity) {
                     @Override
                     protected void onSuccess(BaseResponseEntity<NewsDetail> baseResponseEntity) throws Exception {
                         newsDetailView.showNewsDetail(baseResponseEntity.getData());
                         Log.i("JXF", baseResponseEntity.getData().getDescript());
-
                     }
                 });
 
     }
+
 }

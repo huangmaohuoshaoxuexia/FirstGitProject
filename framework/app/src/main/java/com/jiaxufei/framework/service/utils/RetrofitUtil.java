@@ -2,8 +2,6 @@ package com.jiaxufei.framework.service.utils;
 
 import com.trello.rxlifecycle2.LifecycleProvider;
 
-import java.util.logging.Logger;
-
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
@@ -35,7 +33,8 @@ public class RetrofitUtil {
                 if (provider != null) {
                     observable.compose(provider.bindToLifecycle());
                 }
-                return observable.subscribeOn(Schedulers.io())
+                return observable
+                        .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread());
             }
         };

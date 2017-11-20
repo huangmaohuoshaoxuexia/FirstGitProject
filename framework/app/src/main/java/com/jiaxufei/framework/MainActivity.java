@@ -4,7 +4,7 @@ package com.jiaxufei.framework;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.jiaxufei.framework.api.OrderApi;
+import com.jiaxufei.framework.api.NewsApi;
 import com.jiaxufei.framework.service.network.RetrofitFactory;
 import com.jiaxufei.framework.service.utils.RetrofitUtil;
 import com.jiaxufei.framework.service.network.BaseObserver;
@@ -25,7 +25,7 @@ public class MainActivity extends RxActivity {
     public void getData1() {
         RetrofitFactory.getInstance()
                 .getNetworkClient(HttpConfig.BASE_URL)
-                .createApi(OrderApi.class)
+                .createApi(NewsApi.class)
                 .getNewsDetail("111")
                 .compose(RetrofitUtil.<BaseResponseEntity<NewsDetail>>setThread(this))
                 .subscribe(new BaseObserver<NewsDetail>() {

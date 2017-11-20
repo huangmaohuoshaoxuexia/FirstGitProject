@@ -13,9 +13,10 @@ import com.jiaxufei.framework.base.IBaseView;
  * </p>
  */
 public interface NewsDetailContract {
-    interface Presenter extends BasePresenter{
+    interface Presenter extends BasePresenter {
         void getNewsDetail();
     }
+
     interface View extends IBaseView<Presenter> {
         //显示结果
         void showNewsDetail(NewsDetail newsDetail);

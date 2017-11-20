@@ -20,7 +20,7 @@ import retrofit2.http.Query;
  * 订单相关API接口
  * </p>
  */
-public interface OrderApi {
+public interface NewsApi {
     @GET(URLConfig.news_detail_url)
     Observable<BaseResponseEntity<NewsDetail>> getNewsDetail(@Query("id") String title);
     @GET("basil2style")

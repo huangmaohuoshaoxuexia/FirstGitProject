@@ -5,12 +5,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.jiaxufei.framework.R;
-import com.jiaxufei.framework.api.OrderApi;
-import com.jiaxufei.framework.service.bean.BaseResponseEntity;
-import com.jiaxufei.framework.service.config.HttpConfig;
-import com.jiaxufei.framework.service.network.BaseObserver;
-import com.jiaxufei.framework.service.network.RetrofitFactory;
-import com.jiaxufei.framework.service.utils.RetrofitUtil;
 import com.trello.rxlifecycle2.components.RxActivity;
 
 /**
@@ -22,13 +16,14 @@ import com.trello.rxlifecycle2.components.RxActivity;
  * 内容描述区域
  * </p>
  */
-public class NewsDetailActivity extends RxActivity implements NewsDetailContract.View{
-private NewsDetailContract.Presenter newsDetailPresenter;
+public class NewsDetailActivity extends RxActivity implements NewsDetailContract.View {
+    private NewsDetailContract.Presenter newsDetailPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setPresenter(new NewsDetailPresenter(this));
+        setPresenter(new NewsDetailPresenter(this, this));
         newsDetailPresenter.getNewsDetail();
     }
 
@@ -56,7 +51,7 @@ private NewsDetailContract.Presenter newsDetailPresenter;
 
     @Override
     public void showNewsDetail(NewsDetail newsDetail) {
-        Toast.makeText(this,newsDetail.getAuthor(),Toast.LENGTH_SHORT).show();
-        Log.e("JXF",newsDetail.getAuthor());
+        Toast.makeText(this, newsDetail.getAuthor(), Toast.LENGTH_SHORT).show();
+        Log.e("JXF", newsDetail.getAuthor());
     }
 }
