@@ -3,4 +3,6 @@
     <string name="check_net_status">请检查你的网络状态</string>
     <string name="check_server_status">服务器异常</string>
     <string name="check_unknown_error">未知错误</string>
+    <string name="string_get">get请求</string>
+    <string name="string_post">post请求</string>
 </resources>

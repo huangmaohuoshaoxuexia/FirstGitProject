@@ -50,7 +50,7 @@ public class NewsDetailActivity extends RxActivity implements NewsDetailContract
     }
 
     @Override
-    public void showNewsDetail(NewsDetail newsDetail) {
+    public void showNewsDetail(NewsDetailModel newsDetail) {
         Toast.makeText(this, newsDetail.getAuthor(), Toast.LENGTH_SHORT).show();
         Log.e("JXF", newsDetail.getAuthor());
     }

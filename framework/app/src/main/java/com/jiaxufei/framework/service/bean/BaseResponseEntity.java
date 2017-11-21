@@ -6,19 +6,17 @@ package com.jiaxufei.framework.service.bean;
  * since: 2017-11-13 下午9:27<br/>
  * <p>
  * <p>
- * 解析实体集类
+ * 解析实体集类,和后台约定好的公共返回参数，随项目修改
  * </p>
  */
 public class BaseResponseEntity<T> {
 
-    private static int SUCCESS_CODE=42440;//成功的code
     private int code;
     private String msg;
     private T data;
+    private T model;
+    private String description;
 
-    public boolean isSuccess(){
-        return getCode()==SUCCESS_CODE;
-    }
     public int getCode() {
         return code;
     }
@@ -41,5 +39,21 @@ public class BaseResponseEntity<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public T getModel() {
+        return model;
+    }
+
+    public void setModel(T model) {
+        this.model = model;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

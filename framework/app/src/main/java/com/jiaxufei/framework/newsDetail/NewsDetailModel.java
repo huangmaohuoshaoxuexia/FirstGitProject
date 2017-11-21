@@ -9,7 +9,7 @@ package com.jiaxufei.framework.newsDetail;
  * 内容描述区域
  * </p>
  */
-public class NewsDetail {
+public class NewsDetailModel {
 
     /**
      * author : 佚名
