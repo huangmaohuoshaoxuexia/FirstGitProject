@@ -19,6 +19,6 @@ public interface NewsDetailContract {
 
     interface View extends IBaseView<Presenter> {
         //显示结果
-        void showNewsDetail(NewsDetail newsDetail);
+        void showNewsDetail(NewsDetailModel newsDetail);
     }
 }

@@ -10,6 +10,7 @@ package com.jiaxufei.framework.service.config;
  * </p>
  */
 public class HttpConfig {
-    public static String BASE_URL="https://api.it120.cc/gooking/cms/news/";
+    //public static String BASE_URL="https://api.it120.cc/gooking/cms/news/";
+    public static String BASE_URL="http://app.danlu.com/";
 
 }

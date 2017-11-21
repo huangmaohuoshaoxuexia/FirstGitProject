@@ -46,7 +46,7 @@ public abstract class BaseObserver<T> implements Observer<BaseResponseEntity<T>>
         if (baseResponseEntity != null) {
             int code = baseResponseEntity.getCode();
             if (code != HttpCode.SUCCESS) {
-                onError(new ServerException(code, baseResponseEntity.getMsg()));
+                onError(new ServerException(code, baseResponseEntity.getDescription()));
                 return;
             }
             try {

@@ -13,4 +13,5 @@ public class URLConfig {
 
     public static final String news_detail_url="detail";
     public final static String URL_BASE="https://api.github.com/users/";
+    public static final String login="pos/login/V2/login.json";
 }

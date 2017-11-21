@@ -33,10 +33,10 @@ public class NewsDetailPresenter implements NewsDetailContract.Presenter {
                 .getNetworkClient(HttpConfig.BASE_URL)
                 .createApi(NewsApi.class)
                 .getNewsDetail("111")
-                .compose(RetrofitUtil.<BaseResponseEntity<NewsDetail>>setThread(newsDetailActivity))
-                .subscribe(new BaseObserver<NewsDetail>(newsDetailActivity) {
+                .compose(RetrofitUtil.<BaseResponseEntity<NewsDetailModel>>setThread(newsDetailActivity))
+                .subscribe(new BaseObserver<NewsDetailModel>(newsDetailActivity) {
                     @Override
-                    protected void onSuccess(BaseResponseEntity<NewsDetail> baseResponseEntity) throws Exception {
+                    protected void onSuccess(BaseResponseEntity<NewsDetailModel> baseResponseEntity) throws Exception {
                         newsDetailView.showNewsDetail(baseResponseEntity.getData());
                         Log.i("JXF", baseResponseEntity.getData().getDescript());
                     }
