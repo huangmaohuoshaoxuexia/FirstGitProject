@@ -1,14 +1,11 @@
 package com.jiaxufei.framework.user;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.jiaxufei.framework.R;
-import com.jiaxufei.framework.newsDetail.NewsDetailContract;
-import com.jiaxufei.framework.newsDetail.NewsDetailPresenter;
 import com.trello.rxlifecycle2.components.RxActivity;
 
 /**
@@ -29,6 +26,7 @@ public class UserLoginActivity extends RxActivity implements UserLoginContract.V
         setContentView(R.layout.activity_main);
         setPresenter(new UserLoginPresenter(this, this));
         userLoginPresenter.login("jxs_liuxin110901", "123456", "0");
+
     }
 
 

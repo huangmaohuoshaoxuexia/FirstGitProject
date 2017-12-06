@@ -8,6 +8,7 @@ import com.jiaxufei.framework.service.bean.BaseResponseEntity;
 import com.jiaxufei.framework.service.config.HttpConfig;
 import com.jiaxufei.framework.service.network.BaseObserver;
 import com.jiaxufei.framework.service.network.RetrofitFactory;
+import com.jiaxufei.framework.service.utils.LogUtils;
 import com.jiaxufei.framework.service.utils.RetrofitUtil;
 
 /**
