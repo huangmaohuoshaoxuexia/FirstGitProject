@@ -21,7 +21,10 @@
         </activity>
         <activity android:name=".newsDetail.NewsDetailActivity" />
         <activity android:name=".user.UserLoginActivity" />
-        
+
+        <meta-data
+            android:name="SMART_POS"
+            android:value="${SMART_POS_VALUE}" />
     </application>
 
 </manifest>
