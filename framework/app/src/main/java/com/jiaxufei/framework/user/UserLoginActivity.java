@@ -1,14 +1,12 @@
 package com.jiaxufei.framework.user;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jiaxufei.framework.R;
-import com.jiaxufei.framework.newsDetail.NewsDetailContract;
-import com.jiaxufei.framework.newsDetail.NewsDetailPresenter;
 import com.trello.rxlifecycle2.components.RxActivity;
 
 /**
@@ -22,13 +20,18 @@ import com.trello.rxlifecycle2.components.RxActivity;
  */
 public class UserLoginActivity extends RxActivity implements UserLoginContract.View {
     private UserLoginContract.Presenter userLoginPresenter;
+    TextView tvShow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_user_login);
         setPresenter(new UserLoginPresenter(this, this));
         userLoginPresenter.login("jxs_liuxin110901", "123456", "0");
+        tvShow = (TextView) findViewById(R.id.tv_show);
+        String title = getIntent().getStringExtra("title");
+        tvShow.setBackgroundResource(R.color.color_red);
+        tvShow.setText(title);
     }
 
 

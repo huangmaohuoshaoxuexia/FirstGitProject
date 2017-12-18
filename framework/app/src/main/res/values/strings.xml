@@ -5,4 +5,5 @@
     <string name="check_unknown_error">未知错误</string>
     <string name="string_get">get请求</string>
     <string name="string_post">post请求</string>
+    <string name="string_pack">分包</string>
 </resources>

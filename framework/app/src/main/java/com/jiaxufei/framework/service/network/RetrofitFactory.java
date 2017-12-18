@@ -14,9 +14,7 @@ import java.util.HashMap;
  * </p>
  */
 public class RetrofitFactory {
-    private static final int DEFAULT_TIMEOUT = 10;
     private static RetrofitFactory retrofitFactory;
-    private static NewsApi apiFunction;
     private HashMap<String, HttpClient> httpClientRepository;
 
     private RetrofitFactory() {
@@ -46,8 +44,5 @@ public class RetrofitFactory {
         return client;
     }
 
-    public NewsApi API() {
-        return apiFunction;
-    }
 
 }
