@@ -17,17 +17,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/string_get" />
+
         <Button
             android:id="@+id/btn_post"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/string_post" />
+
         <Button
             android:id="@+id/btn_pack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/string_pack" />
+
+        <Button
+            android:id="@+id/btn_qmui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_qmui" />
     </LinearLayout>
-
-
 </LinearLayout>

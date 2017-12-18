@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".newsDetail.NewsDetailActivity" />
         <activity android:name=".user.UserLoginActivity" />
-
+        <activity android:name=".demo.QmuiActivity" />
         <meta-data
             android:name="SMART_POS"
             android:value="${SMART_POS_VALUE}" />

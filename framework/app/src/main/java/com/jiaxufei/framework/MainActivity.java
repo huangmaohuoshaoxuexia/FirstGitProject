@@ -4,44 +4,57 @@ package com.jiaxufei.framework;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Paint;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jiaxufei.framework.api.NewsApi;
+import com.jiaxufei.framework.demo.QmuiActivity;
 import com.jiaxufei.framework.newsDetail.NewsDetailActivity;
 import com.jiaxufei.framework.newsDetail.NewsDetailModel;
 import com.jiaxufei.framework.service.bean.BaseResponseEntity;
 import com.jiaxufei.framework.service.config.HttpConfig;
 import com.jiaxufei.framework.service.network.BaseObserver;
 import com.jiaxufei.framework.service.network.RetrofitFactory;
+import com.jiaxufei.framework.service.utils.LogUtils;
 import com.jiaxufei.framework.service.utils.RetrofitUtil;
 
 import com.jiaxufei.framework.user.UserLoginActivity;
+import com.qmuiteam.qmui.widget.QMUITopBar;
 import com.trello.rxlifecycle2.components.RxActivity;
+
+import java.util.logging.Logger;
 
 public class MainActivity extends RxActivity implements View.OnClickListener {
     private Button btnGet;
     private Button btnPost;
     private Button btnPack;
+    private Button btnQmui;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-        //getData1();
     }
 
     private void initView() {
         btnGet = (Button) findViewById(R.id.btn_get);
         btnPost = (Button) findViewById(R.id.btn_post);
         btnPack = (Button) findViewById(R.id.btn_pack);
+        btnQmui= (Button) findViewById(R.id.btn_qmui);
         btnGet.setOnClickListener(this);
         btnPost.setOnClickListener(this);
         btnPack.setOnClickListener(this);
+        btnQmui.setOnClickListener(this);
     }
 
     public void getData1() {
@@ -70,6 +83,9 @@ public class MainActivity extends RxActivity implements View.OnClickListener {
                 break;
             case R.id.btn_pack:
                 pack();
+                break;
+            case R.id.btn_qmui:
+               startActivity(new Intent(this, QmuiActivity.class));
                 break;
         }
     }

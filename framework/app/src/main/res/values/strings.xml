@@ -6,4 +6,5 @@
     <string name="string_get">get请求</string>
     <string name="string_post">post请求</string>
     <string name="string_pack">分包</string>
+    <string name="string_qmui">QMUI</string>
 </resources>
