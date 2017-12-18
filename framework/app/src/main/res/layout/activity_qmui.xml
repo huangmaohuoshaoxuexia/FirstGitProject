@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.jiaxufei.framework.MainActivity">
-    <com.qmuiteam.qmui.widget.QMUICollapsingTopBarLayout
-        android:layout_width=""
-        android:layout_height=""></com.qmuiteam.qmui.widget.QMUICollapsingTopBarLayout>
 
     <com.qmuiteam.qmui.widget.QMUITopBar
         android:id="@+id/qmui_topbar"
